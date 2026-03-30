@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GFCPose Project Page</title>
+    <meta
+      name="description"
+      content="GFCPose: Learning Multi-View Geometric and Feature Consistency for Pose Estimation of Textureless Objects"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #fbfcfa;
+        --bg-soft: #f2f7f3;
+        --bg-alt: #eef4f7;
+        --text: #22313a;
+        --muted: #5f6f78;
+        --line: #d8e4df;
+        --accent: #2f7f72;
+        --accent-2: #85a84e;
+        --accent-soft: #e8f4f1;
+        --white: #ffffff;
+        --shadow: 0 12px 30px rgba(31, 53, 63, 0.08);
+        --radius: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans", sans-serif;
+        color: var(--text);
+        background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-soft) 100%);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 3.8rem 0 2.2rem;
+        background:
+          radial-gradient(circle at top, rgba(47, 127, 114, 0.08), transparent 34%),
+          linear-gradient(180deg, #fbfcfa 0%, #f5f9f7 100%);
+      }
+
+      .hero-inner {
+        text-align: center;
+      }
+
+      .hero-tag {
+        display: inline-block;
+        padding: 0.42rem 0.9rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .publication-title {
+        margin: 1rem auto 1.2rem;
+        max-width: 980px;
+        font-family: "Google Sans", sans-serif;
+        font-size: clamp(2rem, 4.2vw, 3.4rem);
+        font-weight: 700;
+        line-height: 1.18;
+        letter-spacing: -0.04em;
+        color: var(--accent);
+      }
+
+      .hero-abstract {
+        margin: 0 auto 1.7rem;
+        max-width: 980px;
+        color: var(--muted);
+        font-size: 0.97rem;
+        line-height: 1.9;
+        text-align: left;
+      }
+
+      .authors {
+        margin: 1.4rem auto 1.1rem;
+        max-width: 860px;
+        color: var(--text);
+        font-size: 1.05rem;
+        line-height: 1.9;
+      }
+
+      .hero-links {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .hero-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        min-width: 148px;
+        padding: 0.8rem 1.35rem;
+        border: none;
+        border-radius: 999px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      }
+
+      .hero-button.secondary {
+        background: var(--white);
+        color: var(--text);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-button.github {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+        color: var(--white);
+        border: 1px solid transparent;
+        box-shadow: 0 10px 24px rgba(47, 127, 114, 0.24);
+      }
+
+      .hero-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-button i {
+        font-size: 1rem;
+      }
+
+      .hero-figure {
+        margin-top: 2.4rem;
+      }
+
+      .figure-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .figure-card img {
+        transition: transform 0.3s ease;
+      }
+
+      .figure-card img:hover {
+        transform: translateY(-2px);
+      }
+
+      .figure-caption {
+        margin: 1rem auto 0;
+        max-width: 920px;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section.soft {
+        background: var(--bg-alt);
+      }
+
+      .section.white {
+        background: var(--white);
+      }
+
+      .section-header {
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding-bottom: 0.9rem;
+        font-family: "Google Sans", sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 84px;
+        height: 4px;
+        border-radius: 999px;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      }
+
+      .section-text {
+        margin: 0 auto 1.5rem;
+        max-width: 930px;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.85;
+        text-align: center;
+      }
+
+      .panel {
+        padding: 1.2rem;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .panel + .panel {
+        margin-top: 1.5rem;
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      [data-reveal].visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 700px) {
+        .container {
+          width: min(1120px, calc(100% - 20px));
+        }
+
+        .hero {
+          padding-top: 2.6rem;
+        }
+
+        .hero-links {
+          gap: 10px;
+        }
+
+        .hero-button {
+          width: 100%;
+        }
+
+        .panel {
+          padding: 0.8rem;
+        }
+
+        .section {
+          padding: 2.25rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="container hero-inner" data-reveal>
+        <span class="hero-tag">Project Page</span>
+        <h1 class="publication-title">
+          GFCPose: Learning Multi-View Geometric and Feature Consistency for
+          Pose Estimation of Textureless Objects
+        </h1>
+        <p class="hero-abstract">
+          6D pose estimation of textureless objects is fundamental to
+          industrial robotic perception and manipulation. Compared with
+          single-view pipelines, multi-view observations provide complementary
+          geometric cues that help reduce depth, scale, and viewpoint
+          ambiguities. However, most existing multi-view approaches either
+          depend on RGB-D input or introduce cross-view information only after
+          single-view pose estimation, which limits the effective use of
+          cross-view geometric consistency. To address these limitations, we
+          propose <strong>GFCPose</strong>, an RGB-only framework that
+          establishes multi-view geometry through dense keypoints. We first
+          formulate an MLE-based multi-view pose estimation method over dense
+          keypoints. To provide reliable inputs for the MLE solver, we design a
+          keypoint localization strategy that first predicts dense keypoints in
+          each view and then jointly refines them across views. To improve
+          per-view reliability, we introduce a Spatial Structural Propagator
+          (SSP) to model local geometric relations among dense keypoints. To
+          strengthen cross-view reasoning, we further introduce a Geo-Feature
+          Consistency Refinement Module (GFCRM) with Geometric Correspondence
+          Alignment (GCA) to enforce geometric and feature consistency across
+          views. This module corrects single-view predictions and provides more
+          accurate inputs for pose solving. In addition, for symmetric objects,
+          we propose a multi-view Symmetry-Aware Training strategy (SAT) to
+          resolve rotational ambiguity. The final pose is estimated through a
+          three-stage progressive MLE optimization procedure. Extensive
+          experiments on ROBI, TROBI, and XYZ-IBD show that GFCPose
+          consistently outperforms state-of-the-art RGB methods and further
+          surpasses RGB-D methods in depth-degraded scenarios.
+        </p>
+
+        <div class="hero-figure">
+          <div class="figure-card">
+            <img src="asset/teaser.png" alt="GFCPose teaser figure" />
+          </div>
+          <p class="figure-caption">
+            GFCPose improves multi-view 6D pose estimation for textureless
+            objects using RGB observations with stronger geometric and feature
+            consistency.
+          </p>
+        </div>
+
+        <p class="authors">
+          Jiahong Chen, Jinghao Wang, Yulan Guo, Zi Wang, Banglei Guan, Zhang
+          Li, and Qifeng Yu
+        </p>
+        <div class="hero-links">
+          <a
+            class="hero-button github"
+            href="https://github.com/chenjiahongbq/GFCPose"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            Code
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="method">
+      <div class="container" data-reveal>
+        <div class="section-header">
+          <h2 class="section-title">Method Overview</h2>
+        </div>
+        <p class="section-text">
+          Given multi-view RGB images and 2D bounding boxes, GFCPose extracts
+          dense keypoints, establishes cross-view matches, refines the matched
+          observations with geometric and feature consistency, and estimates the
+          final 6D pose through a progressive optimization pipeline.
+        </p>
+        <div class="panel">
+          <img src="asset/Overview_GFCPose.png" alt="Overview of GFCPose" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="quantitative">
+      <div class="container" data-reveal>
+        <div class="section-header">
+          <h2 class="section-title">Quantitative Results</h2>
+        </div>
+        <p class="section-text">
+          Quantitative comparison against recent methods. The results summarize
+          the performance gains of GFCPose over previous approaches across
+          benchmark settings.
+        </p>
+        <div class="panel">
+          <img
+            src="asset/Qualitative_results_sota.png"
+            alt="Quantitative comparison results against state-of-the-art methods"
+          />
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const revealElements = document.querySelectorAll("[data-reveal]");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+    </script>
+  </body>
+</html>
